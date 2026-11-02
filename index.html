@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0d0d14">
+<title>GBA Play</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ MENÚ ============ -->
+<main id="menu" class="menu">
+  <img class="logo" src="assets/icon.svg" alt="" width="132" height="132">
+  <h1>GBA <span>Play</span></h1>
+  <p class="tag">Emulador de Game Boy Advance con mandos táctiles</p>
+
+  <button id="btn-continue" class="big primary" hidden>▶ Continuar<small id="continue-name"></small></button>
+  <button id="btn-pick" class="big">📂 Elegir juego (.gba)</button>
+  <input id="file" type="file" accept=".gba,.zip,.agb,.bin" hidden>
+
+  <p class="fine">Tu juego se guarda solo en este dispositivo.<br>La app no incluye ni descarga ningún juego.</p>
+</main>
+
+<!-- ============ JUEGO ============ -->
+<section id="player" hidden>
+  <header class="topbar">
+    <button id="btn-back" aria-label="Volver">←</button>
+    <span id="game-title"></span>
+    <div class="spacer"></div>
+    <button id="btn-ff" class="ff" aria-label="Velocidad x4" title="Velocidad x4">x4</button>
+    <button id="btn-filter" aria-label="Filtro de imagen" title="Filtro de imagen">✨</button>
+    <button id="btn-fs" aria-label="Pantalla completa">⛶</button>
+  </header>
+
+  <div id="screen"><div id="game"></div></div>
+
+  <div id="pad">
+    <button class="shoulder l" data-btn="L"><span>L</span></button>
+    <button class="shoulder r" data-btn="R"><span>R</span></button>
+
+    <div id="dpad" class="dpad" aria-label="Cruceta">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="gd" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a3a52"/><stop offset="1" stop-color="#23233a"/>
+          </linearGradient>
+        </defs>
+        <path d="M42 6h36a6 6 0 0 1 6 6v30h30a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H84v30a6 6 0 0 1-6 6H42a6 6 0 0 1-6-6V78H6a6 6 0 0 1-6-6V48a6 6 0 0 1 6-6h30V12a6 6 0 0 1 6-6z" fill="url(#gd)" stroke="#55557a" stroke-width="1.5"/>
+        <path class="arr up"    d="M60 16l12 16H48z"/>
+        <path class="arr down"  d="M60 104l12-16H48z"/>
+        <path class="arr left"  d="M16 60l16-12v24z"/>
+        <path class="arr right" d="M104 60L88 48v24z"/>
+        <circle cx="60" cy="60" r="9" fill="#1a1a2b" stroke="#55557a"/>
+      </svg>
+    </div>
+
+    <div class="center">
+      <button class="pill" data-btn="SELECT">SELECT</button>
+      <button class="pill" data-btn="START">START</button>
+    </div>
+
+    <div class="face">
+      <button class="round b" data-btn="B"><span>B</span></button>
+      <button class="round a" data-btn="A"><span>A</span></button>
+    </div>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+</html>
